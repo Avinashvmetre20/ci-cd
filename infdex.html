@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>India Payroll — Definitions, Formulas & Applicability Guide</title>
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--text:#172033;--muted:#5e6b7d;--accent:#2457d6;--line:#dfe5ee;--good:#0f7b4d;--warn:#9a6500}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{background:#172b4d;color:#fff;padding:38px 22px}.wrap{max-width:1200px;margin:auto}
+h1{margin:0 0 8px;font-size:34px}header p{margin:0;color:#d9e4f5}
+nav{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line);padding:10px 22px;overflow:auto}
+nav a{margin-right:18px;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600}
+main{padding:28px 22px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 2px 8px #172b4d0a}
+h2{margin-top:38px;border-bottom:2px solid var(--line);padding-bottom:8px}h3{margin-top:24px}
+table{width:100%;border-collapse:collapse;margin:12px 0;background:#fff}th,td{border:1px solid var(--line);padding:10px;vertical-align:top;text-align:left}th{background:#eef3fb}
+code,.formula{background:#f0f3f8;border-radius:6px;padding:2px 6px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.formula{display:block;padding:12px;margin:9px 0;white-space:pre-wrap}
+.badge{display:inline-block;padding:3px 8px;border-radius:999px;background:#e8f0ff;color:#214da9;font-size:12px;font-weight:700}
+.note{border-left:4px solid var(--accent);background:#eef4ff;padding:12px 15px;margin:12px 0}.warn{border-left-color:#d38b00;background:#fff8e8}.good{border-left-color:var(--good);background:#eefaf4}
+.small{color:var(--muted);font-size:13px}.search{width:100%;padding:12px;border:1px solid var(--line);border-radius:8px;font-size:15px}
+ul{padding-left:22px}.pill{font-weight:700}.source a{color:var(--accent)}
+footer{padding:30px 22px;color:var(--muted)}
+@media(max-width:650px){h1{font-size:27px}table{font-size:13px}}
+</style>
+<script>
+function filterTerms(){
+ const q=document.getElementById('search').value.toLowerCase();
+ document.querySelectorAll('[data-term]').forEach(x=>x.style.display=x.innerText.toLowerCase().includes(q)?'':'none');
+}
+</script>
+</head>
+<body>
+<header><div class="wrap">
+<h1>India Payroll — Definitions, Formulas & Applicability</h1>
+<p>A practical payroll reference for Indian payroll processing: earnings, deductions, gross, CTC, PF, ESI, professional tax, TDS, wage-code concepts, proration, leave, bonus and gratuity.</p>
+</div></header>
+<nav><div class="wrap">
+<a href="#basics">Basics</a><a href="#wagecode">Wage Code</a><a href="#earnings">Earnings</a><a href="#deductions">Deductions</a><a href="#pf">PF</a><a href="#esi">ESI</a><a href="#tax">TDS</a><a href="#formulas">Formulas</a><a href="#examples">Examples</a><a href="#workflow">Workflow</a><a href="#glossary">Glossary</a>
+</div></nav>
+<main class="wrap">
+
+<div class="card">
+<input id="search" class="search" oninput="filterTerms()" placeholder="Search this guide — e.g. PF, gross salary, wage, gratuity, ESI...">
+<p class="small">Tip: use browser Find (Ctrl+F) for exact terms.</p>
+</div>
+
+<section id="basics">
+<h2>1. Payroll fundamentals</h2>
+<div class="grid">
+<div class="card" data-term><h3>Payroll</h3><p>The process of calculating an employee's payable salary for a pay period, applying attendance/leave/proration, earnings, statutory contributions, deductions, taxes and producing the final payslip/payable amount.</p></div>
+<div class="card" data-term><h3>Pay Period</h3><p>The period for which salary is processed, normally monthly. Example: 1–30 September.</p></div>
+<div class="card" data-term><h3>Salary / Compensation</h3><p>Money and benefits provided to an employee for employment. A payroll system normally separates recurring earnings, variable earnings, employer benefits and employee deductions.</p></div>
+<div class="card" data-term><h3>CTC</h3><p><b>Cost to Company</b>: the employer's annualized cost of employing the person. CTC is not the same as gross salary or take-home pay.</p>
+<div class="formula">CTC = Gross Earnings + Employer Statutory Contributions + Employer Benefits/Other CTC Components</div></div>
+<div class="card" data-term><h3>Gross Salary / Gross Earnings</h3><p>Total employee earnings before employee-side deductions such as PF, ESI, PT, TDS and recoveries.</p>
+<div class="formula">Gross = Basic + DA + HRA + Allowances + Incentives/Bonus + Overtime + Other Earnings</div></div>
+<div class="card" data-term><h3>Net Pay / Take-home</h3><p>The amount actually payable to the employee after employee deductions.</p>
+<div class="formula">Net Pay = Gross Earnings − Total Employee Deductions</div></div>
+</div>
+<div class="note"><b>Important:</b> CTC, Gross, Gross Wage, PF Wage, ESI Wage, Taxable Salary and Net Pay are different bases. Never use one as a substitute for another.</div>
+</section>
+
+<section id="wagecode">
+<h2>2. Code on Wages — “full wage code” / 50% wage rule</h2>
+<div class="card">
+<p>The <b>Code on Wages, 2019</b> defines “wages” broadly. It expressly includes <b>basic pay, dearness allowance and retaining allowance</b>, while excluding specified items such as HRA, conveyance allowance, certain special-expense payments, overtime, commission, gratuity on termination and certain other components, subject to the statutory conditions.</p>
+<p>The Code also contains an important <b>50% rule</b>: where the specified excluded components under the proviso exceed one-half (or another percentage notified by the Central Government) of total remuneration calculated under the provision, the excess is added back to wages.</p>
+<div class="formula">Code-on-Wages basis (simplified) =
+Basic + DA + Retaining Allowance
++ Add-back required under the 50% rule, where applicable</div>
+<div class="note warn"><b>Do not interpret “50%” as “Basic must always be exactly 50% of CTC”.</b> The statutory wage definition and the add-back mechanism determine wages; employer PF/pension and other statutory components also have specific treatment. Payroll implementation should follow the applicable Central/State rules and current labour-code notifications.</div>
+</div>
+<div class="card">
+<h3>Common payroll meaning of “wage code”</h3>
+<table><tr><th>Term</th><th>Meaning</th></tr>
+<tr><td>Code on Wages</td><td>Indian labour legislation dealing with wages, minimum wages, payment of wages, bonus and related matters.</td></tr>
+<tr><td>Wages</td><td>Statutory definition used for relevant labour-law calculations.</td></tr>
+<tr><td>Gross salary</td><td>Payroll earning total before employee deductions; not automatically identical to statutory “wages”.</td></tr>
+<tr><td>PF wage</td><td>The wage base used for EPF/EPS calculations under the applicable EPF rules.</td></tr>
+<tr><td>ESI wage</td><td>The wage base used to determine ESI coverage/contribution under ESI rules.</td></tr>
+</table>
+</div>
+</section>
+
+<section id="earnings">
+<h2>3. Earnings — what can appear on a payslip?</h2>
+<table>
+<tr><th>Component</th><th>Definition</th><th>Typical calculation / notes</th></tr>
+<tr><td>Basic Pay</td><td>Core salary component. Often used as a base for statutory and company calculations.</td><td>Company policy may define Basic as a percentage of a salary structure; it is not universally “50% of CTC”.</td></tr>
+<tr><td>DA</td><td>Dearness Allowance, generally intended to offset inflation and used particularly in specified wage structures.</td><td>Usually a defined percentage/amount of Basic where applicable.</td></tr>
+<tr><td>HRA</td><td>House Rent Allowance.</td><td>Usually fixed/percentage-based. Tax exemption, where available, is separate from payroll earning calculation.</td></tr>
+<tr><td>Conveyance/Transport</td><td>Allowance toward commuting/transport.</td><td>Tax/statutory treatment depends on the component and current law.</td></tr>
+<tr><td>Special Allowance</td><td>Residual or structured allowance used by the employer.</td><td>Often: Gross target − other fixed earnings.</td></tr>
+<tr><td>Medical/Other Allowance</td><td>Employer-defined allowance.</td><td>Taxability depends on current rules and the nature of the payment.</td></tr>
+<tr><td>Overtime</td><td>Payment for eligible hours worked beyond normal working hours.</td><td>Formula depends on applicable law/company policy.</td></tr>
+<tr><td>Incentive</td><td>Variable payment linked to performance/targets.</td><td>May be monthly, quarterly or annual.</td></tr>
+<tr><td>Bonus</td><td>Payment that may be statutory or contractual.</td><td>Statutory bonus has separate eligibility and calculation rules.</td></tr>
+<tr><td>Arrears</td><td>Current-period payment for a previous period adjustment.</td><td>Examples: increment arrears, attendance correction.</td></tr>
+<tr><td>Leave Encashment</td><td>Payment for eligible accumulated leave when encashed.</td><td>Policy/statutory treatment varies.</td></tr>
+</table>
+
+<h3>Basic salary — how is it calculated?</h3>
+<p>There is <b>no single universal payroll formula</b> requiring Basic to be a fixed percentage of CTC for every employee. It is normally configured by the employer's salary policy and employment terms.</p>
+<div class="formula">Example structure:
+Basic = 40% × Annual Gross Salary
+Monthly Basic = Annual Basic ÷ 12</div>
+<p>Another employer may use 50% of gross, a fixed amount, or another salary-design method. The statutory wage definition should not be confused with a company's internal Basic-pay formula.</p>
+</section>
+
+<section id="deductions">
+<h2>4. Employee deductions</h2>
+<table>
+<tr><th>Deduction</th><th>Definition</th><th>When it applies</th></tr>
+<tr><td>Employee PF / EPF</td><td>Employee's provident-fund contribution.</td><td>When the employee is covered by EPF and contribution is payable.</td></tr>
+<tr><td>Employee ESI</td><td>Employee contribution to Employees' State Insurance.</td><td>When the employee is covered under ESI and contribution is due.</td></tr>
+<tr><td>Professional Tax (PT)</td><td>State-level tax on professions/employment where applicable.</td><td>Only in states/UTs where applicable, subject to state slabs/exemptions.</td></tr>
+<tr><td>TDS</td><td>Tax Deducted at Source on salary.</td><td>When salary tax is payable and the employer is required to deduct it.</td></tr>
+<tr><td>Loan/Advance Recovery</td><td>Recovery of an employee loan or salary advance.</td><td>According to approved recovery schedule.</td></tr>
+<tr><td>Notice/Other Recovery</td><td>Recovery permitted under applicable law and employment terms.</td><td>Only where validly recoverable.</td></tr>
+<tr><td>Other Voluntary Deductions</td><td>Employee-authorized deductions such as certain welfare/benefit schemes.</td><td>According to scheme rules and applicable deduction limits.</td></tr>
+</table>
+<div class="formula">Total Deductions = PF + ESI + PT + TDS + Loan/Advance + Other Valid Deductions</div>
+<div class="formula">Net Take-home = Gross Earnings − Total Deductions</div>
+</section>
+
+<section id="pf">
+<h2>5. PF / EPF</h2>
+<div class="card">
+<h3>What is PF?</h3>
+<p>EPF is the Employees' Provident Fund system administered by EPFO. The employee and employer make statutory contributions subject to the applicable EPF/EPS/EDLI rules.</p>
+<h3>Restricted PF — what does it mean?</h3>
+<p><b>“Restricted PF” is commonly a payroll-system term, not the name of a separate PF scheme.</b> It normally means the PF contribution is calculated on the statutory wage ceiling rather than the employee's full PF wage.</p>
+<div class="formula">If PF wage = ₹40,000 and the applicable PF contribution base is restricted to ₹15,000:
+Employee PF = 12% × ₹15,000 = ₹1,800</div>
+<p>EPFO's published contribution material states that contributions are payable on a maximum wage ceiling of ₹15,000 for ordinary cases, while higher-wage contribution can be made under the applicable rules/requirements. International workers have separate treatment.</p>
+</div>
+<h3>Typical PF calculation</h3>
+<table><tr><th>Item</th><th>Typical rate/base</th></tr>
+<tr><td>Employee EPF</td><td>12% of applicable PF wage (10% for specified establishments/categories under the EPF rules)</td></tr>
+<tr><td>Employer share</td><td>Generally 12% total employer statutory contribution, with the prescribed portion diverted to EPS where applicable.</td></tr>
+<tr><td>EPS</td><td>Employer-side pension contribution; no separate employee EPS contribution.</td></tr>
+<tr><td>EDLI</td><td>Employer-side insurance contribution under applicable EPF rules.</td></tr>
+</table>
+<div class="formula">Employee PF = PF Wage × Employee PF Rate</div>
+<div class="formula">Employer PF = Employer EPF/EPS allocation according to applicable EPF rules</div>
+<div class="note warn">Do not calculate EPS, EDLI and employer PF as if all are additional 12% employee deductions. They are separate statutory components.</div>
+</section>
+
+<section id="esi">
+<h2>6. ESI / ESIC</h2>
+<div class="card">
+<h3>What is ESI?</h3>
+<p>Employees' State Insurance is a social-security scheme administered by ESIC. It provides specified medical, sickness, maternity, disablement, dependants' and other benefits to covered persons subject to the scheme.</p>
+<h3>When does ESI apply?</h3>
+<p>Coverage depends on the establishment being covered and the employee satisfying the wage/eligibility conditions under the ESI law and current notifications. A commonly used wage ceiling for coverage is <b>₹21,000 per month</b> (₹25,000 for persons with disability), subject to the statutory rules.</p>
+<div class="formula">Employee ESI = ESI Wages × 0.75%</div>
+<div class="formula">Employer ESI = ESI Wages × 3.25%</div>
+<p>ESIC's published material confirms the current contribution split of 0.75% employee and 3.25% employer.</p>
+<div class="note"><b>Important:</b> ESI coverage is not simply “gross salary below ₹21,000 = ESI” in every situation. Establishment coverage, wage definition, contribution period and special rules must also be checked.</div>
+</div>
+</section>
+
+<section id="tax">
+<h2>7. Income-tax / TDS from salary</h2>
+<div class="card">
+<p>TDS is the employer's periodic deduction of estimated income tax from salary. The annual tax calculation depends on the employee's tax regime, taxable salary, eligible deductions/exemptions, other income declared for TDS and applicable rates/rebates/cess.</p>
+<h3>Core calculation</h3>
+<div class="formula">Annual Taxable Income
+= Salary/other taxable income
+− deductions/exemptions allowed under the selected tax regime</div>
+<div class="formula">Annual Tax Liability
+= Slab Tax + Surcharge (if applicable) + Health & Education Cess
+− eligible rebate/relief</div>
+<div class="formula">Monthly TDS ≈ Remaining Annual Tax Liability ÷ Remaining Salary Months</div>
+<p class="small">Actual payroll TDS can differ because of declarations, previous-employer income, bonus timing, investment proofs, regime selection and year-end true-up.</p>
+</div>
+<h3>AY 2026–27: new-regime slabs for an individual below 60</h3>
+<table><tr><th>Taxable income</th><th>Rate</th></tr>
+<tr><td>Up to ₹4,00,000</td><td>Nil</td></tr><tr><td>₹4,00,001–₹8,00,000</td><td>5%</td></tr>
+<tr><td>₹8,00,001–₹12,00,000</td><td>10%</td></tr><tr><td>₹12,00,001–₹16,00,000</td><td>15%</td></tr>
+<tr><td>₹16,00,001–₹20,00,000</td><td>20%</td></tr><tr><td>₹20,00,001–₹24,00,000</td><td>25%</td></tr>
+<tr><td>Above ₹24,00,000</td><td>30%</td></tr></table>
+<p>The Income Tax Department states that the new regime is the default regime and that eligible taxpayers can opt for the old regime. For AY 2026–27, the new-regime section 87A rebate is increased to ₹60,000 for total income up to ₹12 lakh, subject to the applicable conditions. Health & Education Cess is 4% of income tax plus surcharge, if any.</p>
+</section>
+
+<section id="formulas">
+<h2>8. Payroll formula library</h2>
+<table>
+<tr><th>Calculation</th><th>Formula</th></tr>
+<tr><td>Gross Earnings</td><td><code>Sum of all applicable earnings</code></td></tr>
+<tr><td>Net Pay</td><td><code>Gross Earnings − Employee Deductions</code></td></tr>
+<tr><td>CTC</td><td><code>Gross Earnings + Employer Contributions + Employer Benefits</code></td></tr>
+<tr><td>Monthly CTC</td><td><code>Annual CTC ÷ 12</code></td></tr>
+<tr><td>Annual Salary</td><td><code>Monthly Salary × 12</code></td></tr>
+<tr><td>Daily Rate (calendar-day method)</td><td><code>Monthly Component ÷ Days in Month</code></td></tr>
+<tr><td>Daily Rate (fixed 30-day method)</td><td><code>Monthly Component ÷ 30</code></td></tr>
+<tr><td>Prorated Component</td><td><code>Monthly Component × Eligible Days ÷ Proration Days</code></td></tr>
+<tr><td>LOP Deduction</td><td><code>Monthly Component × LOP Days ÷ Proration Days</code></td></tr>
+<tr><td>PF</td><td><code>Applicable PF Wage × PF Rate</code></td></tr>
+<tr><td>ESI</td><td><code>Applicable ESI Wages × ESI Rate</code></td></tr>
+<tr><td>Special Allowance</td><td><code>Gross Target − Basic − DA − HRA − Other Fixed Earnings</code></td></tr>
+<tr><td>Annual Bonus at percentage</td><td><code>Eligible Wage × Bonus %</code></td></tr>
+<tr><td>Employee Cost</td><td><code>Gross + Employer PF + Employer ESI + Other Employer Costs</code></td></tr>
+</table>
+<h3>Attendance / LOP</h3>
+<p>Payroll systems may use calendar days, fixed 30 days, payable days or working days depending on company policy. The denominator must be configured explicitly.</p>
+<div class="formula">Payable Days = Eligible Days − LOP Days</div>
+<div class="formula">Prorated Salary = Monthly Salary × Payable Days ÷ Proration Denominator</div>
+<h3>Overtime</h3>
+<p>Overtime must follow the applicable labour law and establishment rules. A generic payroll-engine formula is:</p>
+<div class="formula">OT Pay = Eligible OT Hours × OT Hourly Rate × OT Multiplier</div>
+<p>Do not hard-code a multiplier without confirming the applicable law/policy.</p>
+</section>
+
+<section id="examples">
+<h2>9. Worked examples</h2>
+<div class="card">
+<h3>Example A — simple monthly payroll</h3>
+<table><tr><th>Earning</th><th>Amount</th></tr>
+<tr><td>Basic</td><td>₹30,000</td></tr><tr><td>HRA</td><td>₹15,000</td></tr><tr><td>Special Allowance</td><td>₹10,000</td></tr>
+<tr><th>Gross</th><th>₹55,000</th></tr></table>
+<p>If employee PF is restricted to ₹15,000:</p>
+<div class="formula">PF = ₹15,000 × 12% = ₹1,800</div>
+<p>If PT is ₹200 and TDS is ₹3,000 for the month:</p>
+<div class="formula">Net Pay = ₹55,000 − ₹1,800 − ₹200 − ₹3,000 = ₹50,000</div>
+</div>
+<div class="card">
+<h3>Example B — proration</h3>
+<p>Monthly Basic = ₹30,000. Company uses 30-day proration. LOP = 2 days.</p>
+<div class="formula">LOP = ₹30,000 × 2 ÷ 30 = ₹2,000
+Payable Basic = ₹30,000 − ₹2,000 = ₹28,000</div>
+</div>
+<div class="card">
+<h3>Example C — CTC vs gross vs take-home</h3>
+<div class="formula">Annual Gross = ₹7,20,000
+Employer PF = ₹21,600
+Employer ESI/benefits = ₹0 for this example
+Annual CTC = ₹7,41,600</div>
+<p>The employee's take-home is still lower than gross because employee-side PF, tax, PT and other valid deductions are removed from gross.</p>
+</div>
+</section>
+
+<section id="workflow">
+<h2>10. Payroll processing flow</h2>
+<ol>
+<li><b>Employee master:</b> joining date, salary structure, PF/ESI status, tax regime, state, bank and statutory identifiers.</li>
+<li><b>Attendance:</b> payable days, present days, leave, holidays, LOP and overtime.</li>
+<li><b>Salary structure:</b> calculate Basic, DA, HRA, allowances and other earnings.</li>
+<li><b>Proration:</b> apply joining, exit, LOP and other proration rules.</li>
+<li><b>Variable earnings:</b> incentives, overtime, bonus, arrears, reimbursements and adjustments.</li>
+<li><b>Statutory bases:</b> determine PF wage, ESI wage, tax salary and other statutory bases independently.</li>
+<li><b>Employee deductions:</b> PF, ESI, PT, TDS, loans and valid recoveries.</li>
+<li><b>Employer contributions:</b> PF/EPS/EDLI, ESI and other applicable employer costs.</li>
+<li><b>Net salary:</b> gross minus employee deductions.</li>
+<li><b>Validation:</b> negative net pay, statutory ceilings, contribution rounding, joining/exit dates, duplicate deductions, tax annualization.</li>
+<li><b>Outputs:</b> payslip, bank transfer file, statutory reports/returns and accounting journals.</li>
+</ol>
+</section>
+
+<section id="glossary">
+<h2>11. Payroll glossary</h2>
+<table>
+<tr><th>Term</th><th>Definition</th></tr>
+<tr><td>Basic</td><td>Core salary component defined by the employer's salary structure.</td></tr>
+<tr><td>DA</td><td>Dearness Allowance.</td></tr>
+<tr><td>HRA</td><td>House Rent Allowance.</td></tr>
+<tr><td>Gross</td><td>Total employee earnings before employee deductions.</td></tr>
+<tr><td>Net / Take-home</td><td>Amount payable after employee deductions.</td></tr>
+<tr><td>CTC</td><td>Total employer cost, including applicable employer contributions/benefits.</td></tr>
+<tr><td>PF Wage</td><td>Wage base used for EPF-related calculation.</td></tr>
+<tr><td>Restricted PF</td><td>Common payroll term for calculating PF on the applicable statutory ceiling rather than the full PF wage.</td></tr>
+<tr><td>ESI Wage</td><td>Wage base used for ESI coverage/contribution.</td></tr>
+<tr><td>ESI Coverage</td><td>Whether the employee/establishment falls under ESI based on applicable law and conditions.</td></tr>
+<tr><td>LOP / LWP</td><td>Loss of Pay / Leave Without Pay.</td></tr>
+<tr><td>Arrear</td><td>Payment or recovery relating to an earlier payroll period.</td></tr>
+<tr><td>Proration</td><td>Reducing/increasing a salary component according to payable days or other configured basis.</td></tr>
+<tr><td>TDS</td><td>Tax Deducted at Source.</td></tr>
+<tr><td>PT</td><td>Professional Tax, where applicable under state law.</td></tr>
+<tr><td>EPS</td><td>Employees' Pension Scheme component under EPF.</td></tr>
+<tr><td>EDLI</td><td>Employees' Deposit Linked Insurance component under EPF.</td></tr>
+<tr><td>UAN</td><td>Universal Account Number used for EPFO member accounts.</td></tr>
+<tr><td>Payroll Register</td><td>Detailed employee-wise payroll calculation/output for a pay period.</td></tr>
+<tr><td>Payslip</td><td>Employee-facing statement showing earnings, deductions and net pay.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>12. Important implementation rules</h2>
+<div class="card">
+<ul>
+<li>Keep <b>salary component</b>, <b>statutory wage base</b> and <b>taxable base</b> as separate concepts in your payroll database.</li>
+<li>Do not assume <b>Basic = 50% of CTC</b> unless that is your configured salary policy and it produces the required statutory wage treatment.</li>
+<li>Do not assume <b>PF = 12% of gross</b>. PF uses the applicable PF wage/base and statutory rules.</li>
+<li>Do not assume <b>ESI = 4% employee deduction</b>. The employee share is 0.75%; employer share is 3.25%.</li>
+<li>Do not assume <b>CTC = Gross</b>. Employer contributions and benefits may be part of CTC.</li>
+<li>Do not assume <b>Gross = taxable salary</b>. Taxability is component-specific and regime-specific.</li>
+<li>Keep statutory rates, ceilings, state PT slabs and tax rules configurable rather than hard-coded.</li>
+<li>Round statutory amounts exactly according to the applicable statutory/reporting rules and your payroll specification.</li>
+</ul>
+</div>
+</section>
+
+<section class="source">
+<h2>13. Primary references used for this guide</h2>
+<ul>
+<li><a href="https://labour.gov.in/sites/default/files/the_code_on_wages_2019_no._29_of_2019.pdf" target="_blank">Code on Wages, 2019 — Ministry of Labour & Employment</a></li>
+<li><a href="https://www.labour.gov.in/static/uploads/2025/12/0fd090d29a4576739079a7b565c8ca9d.pdf" target="_blank">Gazette notification bringing Code on Wages provisions into force — 21 Nov 2025</a></li>
+<li><a href="https://www.labour.gov.in/static/uploads/2026/03/a4ccf4c6d97c4f1f36a6d83f8c64213d.pdf" target="_blank">Additional FAQs on Labour Codes — 16 Mar 2026</a></li>
+<li><a href="https://www.epfindia.gov.in/site_docs/PDFs/MiscPDFs/ContributionRate.pdf" target="_blank">EPFO — Present Rates of Contribution</a></li>
+<li><a href="https://esic.gov.in/attachments/publicationfile/9ee889f2149a647db20c722e25ed0ce2.pdf" target="_blank">ESIC — Benefits / contribution information</a></li>
+<li><a href="https://www.incometax.gov.in/iec/foportal/help/individual/return-applicable-1" target="_blank">Income Tax Department — Salaried Individuals, AY 2026–27</a></li>
+</ul>
+<div class="note warn"><b>Legal/payroll disclaimer:</b> This is a payroll-engineering reference, not legal or tax advice. Indian payroll rules can vary by establishment, state, employee category, wage definition, effective date and notification. Before deploying calculations in production, validate them against the latest EPFO/ESIC/Income Tax/Ministry of Labour notifications and applicable State rules.</div>
+</section>
+
+</main>
+<footer><div class="wrap">Payroll Reference • Prepared for Indian payroll implementation • Last reviewed: 09 September 2026</div></footer>
+</body></html>
