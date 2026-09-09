@@ -28,15 +28,11 @@ jobs:
           submodules: true
           lfs: false
 
-      - name: Install OIDC Client
-        run: npm install @actions/core@1.6.0 @actions/http-client
-
       - name: Get GitHub ID Token
-        uses: actions/github-script@v6
+        uses: actions/github-script@v8
         id: idtoken
         with:
           script: |
-            const core = require('@actions/core')
             return await core.getIDToken()
           result-encoding: string
 
@@ -47,12 +43,10 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ICY_MUD_00AAED500 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: upload
-
           app_location: "/"
           api_location: ""
           output_location: ""
           skip_app_build: true
-
           github_id_token: ${{ steps.idtoken.outputs.result }}
 
   close_pull_request_job:
